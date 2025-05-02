@@ -1,0 +1,41 @@
+.gitignore# Build results
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Visual Studio
+.vs/
+
+# Dotnet-specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+*.psmdcp
+
+# Logs
+*.log
+
+# Others
+*.DS_Store
+Thumbs.db
+*.dbmdl
+*.bak
+*.tmp
+
+# dotenv files
+.env

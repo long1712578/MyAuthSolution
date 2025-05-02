@@ -19,14 +19,14 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: Restore AuthServer dependencies
-      run: dotnet restore ./AuthServer/AuthServer.sln
+    - name: Restore OAuthOpenIdSolution dependencies
+      run: dotnet restore ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln
 
     - name: Build
-      run: dotnet build ./AuthServer/AuthServer.sln --no-restore --configuration Release
+      run: dotnet build ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln --no-restore --configuration Release
 
     - name: Test
-      run: dotnet test ./AuthServer/AuthServer.sln --no-build --verbosity normal
+      run: dotnet test ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln --no-build --verbosity normal
   build_protectedapi:
     runs-on: windows-latest
     steps:
@@ -39,11 +39,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore ProtectedApi dependencies
-        run: dotnet restore ./AuthServer/ProtectedApi/ProtectedApi.csproj
+        run: dotnet restore ./OAuthOpenIdSolution/ProtectedApi/ProtectedApi.csproj
 
       - name: Build ProtectedApi
-        run: dotnet build ./AuthServer/ProtectedApi/ProtectedApi.csproj --no-restore --configuration Release
+        run: dotnet build ./OAuthOpenIdSolution/ProtectedApi/ProtectedApi.csproj --no-restore --configuration Release
 
       - name: Test ProtectedApi
-        run: dotnet test ./AuthServer/ProtectedApi/ProtectedApi.csproj --no-build --verbosity normal
+        run: dotnet test ./OAuthOpenIdSolution/ProtectedApi/ProtectedApi.csproj --no-build --verbosity normal
 

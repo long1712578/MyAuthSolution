@@ -39,11 +39,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore ProtectedApi dependencies
-        run: dotnet restore ./ProtectedApi/ProtectedApi.csproj
+        run: dotnet restore ./AuthServer/ProtectedApi/ProtectedApi.csproj
 
       - name: Build ProtectedApi
-        run: dotnet build ./ProtectedApi/ProtectedApi.csproj --no-restore --configuration Release
+        run: dotnet build ./AuthServer/ProtectedApi/ProtectedApi.csproj --no-restore --configuration Release
 
       - name: Test ProtectedApi
-        run: dotnet test ./ProtectedApi/ProtectedApi.csproj --no-build --verbosity normal
+        run: dotnet test ./AuthServer/ProtectedApi/ProtectedApi.csproj --no-build --verbosity normal
 

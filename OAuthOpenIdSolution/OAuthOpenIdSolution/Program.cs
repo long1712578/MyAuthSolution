@@ -1,4 +1,4 @@
-using OAuthOpenIdSolution;
+using AuthServer;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
 ﻿using Duende.IdentityServer.Models;
 
-namespace OAuthOpenIdSolution
+namespace AuthServer
 {
     public static class Config
     {

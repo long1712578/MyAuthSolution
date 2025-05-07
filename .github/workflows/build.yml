@@ -28,10 +28,4 @@ jobs:
 
     - name: Test (if any test projects exist)
       run: dotnet test ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln --no-build --verbosity normal
-  
-  ## Run local
-  ```bash
-  cd OAuthOpenIdSolution/OAuthOpenIdSolution/AuthServer && dotnet run --urls=https://localhost:5001
-  cd OAuthOpenIdSolution/OAuthOpenIdSolution/ProtectedApi && dotnet run --urls=https://localhost:6001
-  cd OAuthOpenIdSolution/OAuthOpenIdSolution/ClientConsole && dotnet run
 

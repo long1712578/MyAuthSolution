@@ -9,15 +9,16 @@ namespace AuthServer
         {
             new Client
             {
-                ClientId = "angular-client",
-                AllowedGrantTypes = GrantTypes.Code,
-                RedirectUris = { "http://localhost:4200/callback" },
-                PostLogoutRedirectUris = { "http://localhost:4200" },
+                ClientId = "client",
+                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                //RedirectUris = { "http://localhost:4200/callback" },
+                //PostLogoutRedirectUris = { "http://localhost:4200" },
                 AllowedScopes = { "openid", "profile", "api1" },
-                RequirePkce = true,
-                RequireClientSecret = false,
-                AllowedCorsOrigins = { "http://localhost:4200" },
-                AllowAccessTokensViaBrowser = true
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                //RequirePkce = true,
+                //RequireClientSecret = false,
+                //AllowedCorsOrigins = { "http://localhost:4200" },
+                //AllowAccessTokensViaBrowser = true
             }
         };
 

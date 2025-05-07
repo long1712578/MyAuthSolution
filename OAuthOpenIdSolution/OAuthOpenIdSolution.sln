@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
@@ -19,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 	ProjectSection(SolutionItems) = preProject
 		ci.yml = ci.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsole", "ClientConsole\ClientConsole.csproj", "{513A4251-33B1-4AF3-9665-FB1830946864}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +35,10 @@ Global
 		{73901B58-0402-4606-9733-91901086D8E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73901B58-0402-4606-9733-91901086D8E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73901B58-0402-4606-9733-91901086D8E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513A4251-33B1-4AF3-9665-FB1830946864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513A4251-33B1-4AF3-9665-FB1830946864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513A4251-33B1-4AF3-9665-FB1830946864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513A4251-33B1-4AF3-9665-FB1830946864}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

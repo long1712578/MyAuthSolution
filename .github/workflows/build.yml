@@ -30,8 +30,8 @@ jobs:
       run: dotnet test ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln --no-build --verbosity normal
 
   build-matrix:
-    name: Build and Test Matrix (GPU/CPU ephemeral runners)
-    runs-on: ${{ format('self-hosted,ephemeral,{0}', matrix.target) }}
+    name: Build and Test Matrix (GPU/CPU runners)
+    runs-on: ${{ format('self-hosted,{0}', matrix.target) }}
     strategy:
       matrix:
         target: [gpu, cpu]

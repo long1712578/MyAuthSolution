@@ -31,7 +31,7 @@ jobs:
 
   build-matrix:
     name: Build and Test Matrix (GPU/CPU ephemeral runners)
-    runs-on: [self-hosted, ephemeral, ${{ matrix.target }}]
+    runs-on: ${{ format('self-hosted,ephemeral,{0}', matrix.target) }}
     strategy:
       matrix:
         target: [gpu, cpu]

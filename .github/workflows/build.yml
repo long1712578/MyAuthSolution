@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI Pipeline (Matrix + Ephemeral + Build)
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and test all
+    name: Build OAuthOpenIdSolution
     runs-on: windows-latest
 
     steps:
@@ -28,4 +28,34 @@ jobs:
 
     - name: Test (if any test projects exist)
       run: dotnet test ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln --no-build --verbosity normal
+
+  build-matrix:
+    name: Build and Test Matrix (GPU/CPU ephemeral runners)
+    runs-on: [self-hosted, ephemeral, ${{ matrix.target }}]
+    strategy:
+      matrix:
+        target: [gpu, cpu]
+    steps:
+    - name: Print runner info
+      run: |
+        echo "Runner OS: ${{ runner.os }}"
+        echo "Runner name: ${{ runner.name }}"
+        echo "Target: ${{ matrix.target }}"
+    - name: Simulate build
+      run: |
+        echo "Build project for target: ${{ matrix.target }}"
+        sleep 10
+    - name: Simulate test
+      run: |
+        echo "Running test for target: ${{ matrix.target }}"
+        sleep 5
+  deploy:
+    name: Deploy if CPU
+    needs: build-matrix
+    if: ${{ matrix.target == 'cpu' }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy step
+    run: echo "Deploying app for CPU..."
+      
 

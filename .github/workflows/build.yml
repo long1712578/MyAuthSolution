@@ -49,13 +49,9 @@ jobs:
       run: |
         echo "Running test for target: ${{ matrix.target }}"
         sleep 5
-  deploy:
-    name: Deploy if CPU
-    needs: build-matrix
-    if: ${{ matrix.target == 'cpu' }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy step
-    run: echo "Deploying app for CPU..."
+    
+    - name: Deploy (CPU only)
+      if: ${{ matrix.target == 'cpu' }}
+      run: echo "Deploying for CPU target..."
       
 

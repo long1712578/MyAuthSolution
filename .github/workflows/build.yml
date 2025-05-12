@@ -5,9 +5,6 @@ on:
     branches: master
   pull_request:
     branches: master
-strategy:
-      matrix:
-        target: [gpu, cpu]
 jobs:
   build:
     name: Build OAuthOpenIdSolution
@@ -32,6 +29,9 @@ jobs:
       run: dotnet test ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln --no-build --verbosity normal
 
   build-matrix:
+    strategy:
+      matrix:
+        target: [gpu, cpu]
     name: Build and Test Matrix (GPU/CPU runners)
     timeout-minutes: 15
     runs-on: ${{ format('self-hosted,{0}', matrix.target) }}

@@ -34,7 +34,7 @@ jobs:
   build-matrix:
     name: Build and Test Matrix (GPU/CPU runners)
     timeout-minutes: 15
-    runs-on: [self-hosted,${{ matrix.target }}]
+    runs-on: ${{ format('self-hosted,{0}', matrix.target) }}
     steps:
     - name: Print runner info
       run: |

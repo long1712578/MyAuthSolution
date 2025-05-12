@@ -27,31 +27,48 @@ jobs:
 
     - name: Test (if any test projects exist)
       run: dotnet test ./OAuthOpenIdSolution/OAuthOpenIdSolution.sln --no-build --verbosity normal
-
-  build-matrix:
-    strategy:
-      matrix:
-        target: [gpu, cpu]
-    name: Build and Test Matrix (GPU/CPU runners)
-    timeout-minutes: 15
-    runs-on: ${{ format('self-hosted,{0}', matrix.target) }}
+  test-cpu:
+    name: Run Tests on CPU Runner
+    needs: build
+    runs-on: [self-hosted, cpu]
     steps:
     - name: Print runner info
       run: |
         echo "Runner OS: ${{ runner.os }}"
         echo "Runner name: ${{ runner.name }}"
-        echo "Target: ${{ matrix.target }}"
+        echo "Target: cpu"
     - name: Simulate build
       run: |
-        echo "Build project for target: ${{ matrix.target }}"
+        echo "Build project for target: cpu"
         sleep 10
     - name: Simulate test
       run: |
-        echo "Running test for target: ${{ matrix.target }}"
+        echo "Running test for target: cpu"
         sleep 5
     
-    - name: Deploy (CPU only)
-      if: ${{ matrix.target == 'cpu' }}
+    - name: Deploy for cpu
       run: echo "Deploying for CPU target..."
+
+  test-gpu:
+    name: Run Tests on GPU Runner
+    needs: build
+    runs-on: [self-hosted, gpu]
+    steps:
+    - name: Print runner info
+      run: |
+        echo "Runner OS: ${{ runner.os }}"
+        echo "Runner name: ${{ runner.name }}"
+        echo "Target: gpu"
+    - name: Simulate build
+      run: |
+        echo "Build project for target: gpu"
+        sleep 10
+    - name: Simulate test
+      run: |
+        echo "Running test for target: gpu"
+        sleep 5
+    
+    - name: Deploy for gpu
+      run: echo "Deploying for gPU target..."
       
 

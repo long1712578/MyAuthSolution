@@ -14,4 +14,4 @@ builder.Services.AddIdentityServer(options =>
 
 var app = builder.Build();
 app.UseIdentityServer();
-app.Run(); 
+app.Run();

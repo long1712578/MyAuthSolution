@@ -1,4 +1,4 @@
-name: CI Pipeline (Matrix + Ephemeral + Build)
+name: CI Pipeline (Matrix + Build)
 
 on:
   push:
@@ -31,7 +31,8 @@ jobs:
 
   build-matrix:
     name: Build and Test Matrix (GPU/CPU runners)
-    runs-on: ${{ format('self-hosted,{0}', matrix.target) }}
+    runs-on: [self-hosted, ${{ matrix.target }}]
+    timeout-minutes: 15
     strategy:
       matrix:
         target: [gpu, cpu]

@@ -5,7 +5,9 @@ on:
     branches: master
   pull_request:
     branches: master
-
+strategy:
+      matrix:
+        target: [gpu, cpu]
 jobs:
   build:
     name: Build OAuthOpenIdSolution
@@ -32,9 +34,6 @@ jobs:
   build-matrix:
     name: Build and Test Matrix (GPU/CPU runners)
     timeout-minutes: 15
-    strategy:
-      matrix:
-        target: [gpu, cpu]
     runs-on: [self-hosted,${{ matrix.target }}]
     steps:
     - name: Print runner info
